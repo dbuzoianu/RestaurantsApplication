@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
+import com.example.restaurantsapplication.restaurants.RestaurantsActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -13,7 +14,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Intent intent = new Intent(SplashActivity.this,RestaurantsActivity.class);
+        Intent intent = new Intent(SplashActivity.this, RestaurantsActivity.class);
         startActivity(intent);
     }
 }
