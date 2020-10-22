@@ -11,7 +11,7 @@ import com.example.restaurantsapplication.model.ImageItem;
 
 import java.util.ArrayList;
 
-public class SingleRestaurantActivity extends AppCompatActivity {
+public class RestaurantDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
