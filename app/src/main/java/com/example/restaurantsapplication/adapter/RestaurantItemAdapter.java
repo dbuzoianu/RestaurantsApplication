@@ -1,11 +1,9 @@
-package com.example.restaurantsapplication;
+package com.example.restaurantsapplication.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageSwitcher;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -13,6 +11,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.RestaurantItem;
 
 import java.util.ArrayList;
@@ -41,6 +40,8 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         holder.image.setImageDrawable(ContextCompat.getDrawable(context, restaurant.getIcon()));
         holder.title.setText(restaurant.getTitle());
         holder.description.setText(restaurant.getDescription());
+
+        //Todo: Adaugare ProgressBar
 
     }
 

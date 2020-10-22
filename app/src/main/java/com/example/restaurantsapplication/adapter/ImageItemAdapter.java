@@ -1,4 +1,4 @@
-package com.example.restaurantsapplication;
+package com.example.restaurantsapplication.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.ImageItem;
 
 import java.util.ArrayList;

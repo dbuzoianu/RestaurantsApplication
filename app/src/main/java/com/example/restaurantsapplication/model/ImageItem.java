@@ -1,6 +1,7 @@
 package com.example.restaurantsapplication.model;
 
 public class ImageItem {
+    //Todo: Folosire url
     private int icon;
 
     public ImageItem(int icon) {

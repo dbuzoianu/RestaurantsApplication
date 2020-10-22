@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.restaurantsapplication.R;
-import com.example.restaurantsapplication.RestaurantItemAdapter;
+import com.example.restaurantsapplication.adapter.RestaurantItemAdapter;
 import com.example.restaurantsapplication.model.RestaurantItem;
 
 import java.util.ArrayList;
@@ -30,6 +30,8 @@ public class RestaurantsActivity extends AppCompatActivity {
 
     private ArrayList<RestaurantItem> getMonkRestaurants() {
         ArrayList<RestaurantItem> restaurants = new ArrayList<>();
+
+        //Todo: Schimbare date cu cele din json
 
         restaurants.add(new RestaurantItem(androidx.appcompat.R.drawable.abc_btn_borderless_material, "Titlu1", "Desc1"));
         restaurants.add(new RestaurantItem(androidx.appcompat.R.drawable.abc_ic_menu_copy_mtrl_am_alpha, "Titlu2", "Desc2"));

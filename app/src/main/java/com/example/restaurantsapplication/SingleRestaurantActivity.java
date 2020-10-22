@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.restaurantsapplication.adapter.ImageItemAdapter;
 import com.example.restaurantsapplication.model.ImageItem;
-import com.example.restaurantsapplication.model.RestaurantItem;
 
 import java.util.ArrayList;
 
@@ -18,16 +18,18 @@ public class SingleRestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_restaurant_page);
 
-        RecyclerView restaurantsListView = findViewById(R.id.restaurantsListView);
-        restaurantsListView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
-        restaurantsListView.setHasFixedSize(true);
+        RecyclerView imagesListView = findViewById(R.id.carouselRestaurant);
+        imagesListView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        imagesListView.setHasFixedSize(true);
 
-        ImageItemAdapter restaurantsAdapter = new ImageItemAdapter(getMonkImages(), getBaseContext());
+        ImageItemAdapter imageAdapter = new ImageItemAdapter(getMonkImages(), getBaseContext());
+        imagesListView.setAdapter(imageAdapter);
     }
 
     private ArrayList<ImageItem> getMonkImages() {
         ArrayList<ImageItem> restaurants = new ArrayList<>();
-
+        //Todo: Schimbare iconuricu url-ul din json;
+        //Todo preluare imagini in functie de restaurantul pe care se apasa
         restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_btn_borderless_material));
         restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_ic_menu_copy_mtrl_am_alpha));
         restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_scrubber_control_to_pressed_mtrl_000));
