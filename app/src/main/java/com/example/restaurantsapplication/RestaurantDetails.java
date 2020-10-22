@@ -27,16 +27,16 @@ public class RestaurantDetails extends AppCompatActivity {
     }
 
     private ArrayList<ImageItem> getMonkImages() {
-        ArrayList<ImageItem> restaurants = new ArrayList<>();
+        ArrayList<ImageItem> images = new ArrayList<>();
         //Todo: Schimbare iconuricu url-ul din json;
         //Todo preluare imagini in functie de restaurantul pe care se apasa
-        restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_btn_borderless_material));
-        restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_ic_menu_copy_mtrl_am_alpha));
-        restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_scrubber_control_to_pressed_mtrl_000));
-        restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_text_select_handle_left_mtrl_light));
-        restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_textfield_search_material));
-        restaurants.add(new ImageItem(androidx.appcompat.R.drawable.abc_menu_hardkey_panel_mtrl_mult));
+        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_btn_borderless_material));
+        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_ic_menu_copy_mtrl_am_alpha));
+        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_scrubber_control_to_pressed_mtrl_000));
+        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_text_select_handle_left_mtrl_light));
+        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_textfield_search_material));
+        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_menu_hardkey_panel_mtrl_mult));
 
-        return restaurants;
+        return images;
     }
 }
