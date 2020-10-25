@@ -1,4 +1,4 @@
-package com.example.restaurantsapplication.adapter;
+package com.example.restaurantsapplication.restaurantsDetails;
 
 import android.content.Context;
 import android.view.LayoutInflater;
