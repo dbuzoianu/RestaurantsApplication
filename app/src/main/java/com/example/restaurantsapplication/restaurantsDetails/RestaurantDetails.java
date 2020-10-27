@@ -1,6 +1,8 @@
 package com.example.restaurantsapplication.restaurantsDetails;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +17,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCallback {
@@ -24,7 +30,9 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_restaurant_page);
 
+        setContentView(R.layout.toolbar);
 
+        setToolbar();
 
         RecyclerView imagesListView = findViewById(R.id.carouselRestaurant);
         imagesListView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
@@ -45,6 +53,46 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         LatLng coord = new LatLng(41.1622023,-8.656973);
         googleMap.addMarker(new MarkerOptions().position(coord).title("Porto").snippet("Welcome to Porto, Portugal!"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coord, 16));
+    }
+
+    private void setToolbar() {
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        myToolbar.setTitle("Restaurant name");
+        myToolbar.setSubtitle("Restaurant description");
+        setSupportActionBar(myToolbar);
+
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_favourite:
+                Toast.makeText(this, " your favorite is clicked ", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.action_setting:
+                Toast.makeText(this, " your settings is clicked ", Toast.LENGTH_LONG).show();
+                return true;
+        }
+
+        return true;
+//        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private ArrayList<ImageItem> getMonkImages() {

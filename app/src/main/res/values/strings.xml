@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RestaurantsApplication</string>
+    <string name="title">Title</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="favourite">Favourite</string>
+    <string name="settings">Settings</string>
 </resources>
