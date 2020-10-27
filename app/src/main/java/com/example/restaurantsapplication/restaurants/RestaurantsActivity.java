@@ -43,22 +43,22 @@ public class RestaurantsActivity extends AppCompatActivity {
     }
 
     private void getRestaurantsAsynchronous() {
-        ServerProvider.createPostService().getRestaurants().enqueue(new Callback<List<Post>>() {
-            @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-                if (response.isSuccessful()) {
-                    restaurantsList = response.body();
-                    restaurantsAdapter = new RestaurantItemAdapter(restaurantsAdapter.setData(restaurantsList), getBaseContext());
-//                    restaurantsAdapter.setData((ArrayList<RestaurantItem>) restaurantsList, getBaseContext());
-                    restaurantsListView.setAdapter(restaurantsAdapter);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
-
-            }
-        });
+//        ServerProvider.createPostService().getRestaurants().enqueue(new Callback<List<Post>>() {
+//            @Override
+//            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+//                if (response.isSuccessful()) {
+//                    restaurantsList = response.body();
+//                    restaurantsAdapter = new RestaurantItemAdapter(restaurantsAdapter.setData(restaurantsList), getBaseContext());
+////                    restaurantsAdapter.setData((ArrayList<RestaurantItem>) restaurantsList, getBaseContext());
+//                    restaurantsListView.setAdapter(restaurantsAdapter);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Post>> call, Throwable t) {
+//
+//            }
+//        });
     }
 
 
