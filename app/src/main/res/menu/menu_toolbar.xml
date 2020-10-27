@@ -9,10 +9,4 @@
         app:showAsAction="ifRoom"
         />
 
-    <item
-        android:id="@+id/action_setting"
-        android:title="@string/toolbar_settings"
-        app:showAsAction="never"
-        />
-
 </menu>

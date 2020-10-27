@@ -56,7 +56,6 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
     private void setToolbar() {
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         myToolbar.setTitle("Restaurant name");
-        myToolbar.setSubtitle("Restaurant description");
         setSupportActionBar(myToolbar);
 
         if(getSupportActionBar()!=null) {
@@ -77,9 +76,6 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         switch (item.getItemId()) {
             case R.id.action_favourite:
                 Toast.makeText(this, " your favorite is clicked ", Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.action_setting:
-                Toast.makeText(this, " your settings is clicked ", Toast.LENGTH_LONG).show();
                 return true;
         }
 
