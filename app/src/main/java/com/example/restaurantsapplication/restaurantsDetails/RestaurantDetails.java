@@ -30,8 +30,6 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_restaurant_page);
 
-        setContentView(R.layout.toolbar);
-
         setToolbar();
 
         RecyclerView imagesListView = findViewById(R.id.carouselRestaurant);
