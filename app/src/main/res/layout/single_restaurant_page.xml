@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        app:title="@string/title"
-        app:subtitle="@string/subtitle"
+        app:title="@string/toolbar_title"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,15 +66,18 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carouselRestaurant" />
+        app:layout_constraintTop_toBottomOf="@+id/carouselRestaurant"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map"
         android:layout_width="411dp"
         android:layout_height="285dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

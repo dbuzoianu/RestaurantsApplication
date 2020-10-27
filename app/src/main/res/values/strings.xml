@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RestaurantsApplication</string>
-    <string name="title">Title</string>
+    <string name="toolbar_title">Title</string>
     <string name="subtitle">Subtitle</string>
-    <string name="favourite">Favourite</string>
-    <string name="settings">Settings</string>
+    <string name="toolbar_favourite">Favourite</string>
+    <string name="toolbar_settings">Settings</string>
 </resources>
