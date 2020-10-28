@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.restaurantsapplication.R;
@@ -30,6 +32,9 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
 
     LatLng coord;
     String name;
+    Boolean isFavourite;
+    SharedPreferences myPrefs = getSharedPreferences("my_preferred_choices", Activity.MODE_PRIVATE);
+    SharedPreferences.Editor editor = myPrefs.edit();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,8 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         String description = intent.getStringExtra("description");
         String latitude = intent.getStringExtra("latitude");
         String longitude = intent.getStringExtra("longitude");
+
+        isFavourite = myPrefs.getBoolean(name, false);
 
         //Serializable photos = intent.getSerializableExtra("photos");
 
@@ -96,15 +103,19 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
         switch (item.getItemId()) {
             case R.id.action_favourite:
-                Toast.makeText(this, " your favorite is clicked ", Toast.LENGTH_LONG).show();
+                if(isFavourite) {
+                    isFavourite = false;
+                    editor.remove(name);
+                } else {
+                    isFavourite = true;
+                    editor.putBoolean(name, true);
+                }
                 return true;
         }
 
         return true;
-//        return super.onOptionsItemSelected(item);
     }
 
     @Override
