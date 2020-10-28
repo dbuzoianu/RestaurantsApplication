@@ -1,9 +1,11 @@
 package com.example.restaurantsapplication.restaurants;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -14,32 +16,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.RestaurantItem;
+import com.example.restaurantsapplication.restaurantsDetails.RestaurantDetails;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAdapter.RestaurantItemViewHolder> {
     private ArrayList<RestaurantItem> restaurants;
     private Context context;
-    //private final View.OnClickListener mOnClickListener = new RestaurantClickListener();
-
-
-    public RestaurantItemAdapter(ArrayList<RestaurantItem> restaurants, Context context) {
-        this.restaurants = restaurants;
-        this.context = context;
-        notifyDataSetChanged();
-    }
 
     public RestaurantItemAdapter() {
         notifyDataSetChanged();
     }
 
-
     @NonNull
     @Override
     public RestaurantItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_restaurant_constraint_layout, parent, false);
-//        view.setOnClickListener(mOnClickListener);
         return new RestaurantItemViewHolder(view);
     }
 
@@ -50,7 +45,6 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         Glide.with(this.context).load(restaurant.getImagePath()).into(holder.image);
         holder.title.setText(restaurant.getName());
         holder.description.setText(restaurant.getDescription());
-
 
     }
 
@@ -65,18 +59,34 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         notifyDataSetChanged();
     }
 
-
-    class RestaurantItemViewHolder extends RecyclerView.ViewHolder{
+    class RestaurantItemViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
         private AppCompatImageView image;
         private AppCompatTextView title;
         private AppCompatTextView description;
 
         public RestaurantItemViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            itemView.setOnClickListener(this);
             image = itemView.findViewById(R.id.restaurantImage);
             title = itemView.findViewById(R.id.restaurantTitle);
             description = itemView.findViewById(R.id.restaurantDescription);
         }
+
+
+        @Override
+        public void onClick(View v) {
+
+            int pos = getLayoutPosition();
+
+            Intent intent = new Intent(context, RestaurantDetails.class);
+
+            intent.putExtra("title", restaurants.get(pos).getName());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            context.startActivity(intent);
+        }
     }
+
+
+
 }

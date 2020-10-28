@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.Post;
 import com.example.restaurantsapplication.model.RestaurantItem;
+import com.example.restaurantsapplication.restaurantsDetails.RestaurantDetails;
 import com.example.restaurantsapplication.server.ServerProvider;
 
 import java.util.ArrayList;
@@ -26,6 +30,7 @@ public class RestaurantsActivity extends AppCompatActivity {
     RestaurantItemAdapter restaurantsAdapter;
     RecyclerView restaurantsListView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,9 @@ public class RestaurantsActivity extends AppCompatActivity {
         restaurantsListView = findViewById(R.id.restaurantsListView);
         restaurantsListView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         restaurantsListView.setHasFixedSize(true);
+
+
+        restaurantsAdapter = new RestaurantItemAdapter();
 
         getRestaurantsAsynchronous();
     }
@@ -44,9 +52,9 @@ public class RestaurantsActivity extends AppCompatActivity {
             public void onResponse(Call<List<RestaurantItem>> call, Response<List<RestaurantItem>> response) {
                 if (response.isSuccessful()) {
                     restaurantsList = response.body();
-                    restaurantsAdapter = new RestaurantItemAdapter();
+
+
                     restaurantsAdapter.setData(restaurantsList, getBaseContext());
-//                    restaurantsAdapter.setData((ArrayList<RestaurantItem>) restaurantsList, getBaseContext());
                     restaurantsListView.setAdapter(restaurantsAdapter);
                 }
             }
@@ -59,13 +67,6 @@ public class RestaurantsActivity extends AppCompatActivity {
     }
 
 
-    private class RestaurantClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            int itemPosition = restaurantsListView.getChildLayoutPosition(v);
-//            String item = mList.get(itemPosition);
-//            Toast.makeText(mContext, item, Toast.LENGTH_LONG).show();
-        }
-    }
+
 
 }

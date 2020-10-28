@@ -21,8 +21,8 @@ public class RestaurantItem {
     @SerializedName("longitude")
     private String longitude;
 
-//    @SerializedName("photos")
-//    private ArrayList<String> photos;
+    @SerializedName("photos")
+    private ArrayList<ImageItem> photos;
 
     public RestaurantItem(int icon, String name, String description, String imagePath, String latitude, String longitude, ArrayList<String> photos) {
         this.icon = icon;

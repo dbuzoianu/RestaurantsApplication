@@ -91,13 +91,13 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
 
     private ArrayList<ImageItem> getMonkImages() {
         ArrayList<ImageItem> images = new ArrayList<>();
-
-        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_btn_borderless_material));
-        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_ic_menu_copy_mtrl_am_alpha));
-        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_scrubber_control_to_pressed_mtrl_000));
-        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_text_select_handle_left_mtrl_light));
-        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_textfield_search_material));
-        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_menu_hardkey_panel_mtrl_mult));
+//
+//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_btn_borderless_material, imagePath));
+//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_ic_menu_copy_mtrl_am_alpha, imagePath));
+//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_scrubber_control_to_pressed_mtrl_000, imagePath));
+//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_text_select_handle_left_mtrl_light, imagePath));
+//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_textfield_search_material, imagePath));
+//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_menu_hardkey_panel_mtrl_mult, imagePath));
 
         return images;
     }
