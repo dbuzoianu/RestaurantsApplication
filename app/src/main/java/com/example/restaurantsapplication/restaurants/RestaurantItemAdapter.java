@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.RestaurantItem;
 
@@ -29,6 +30,11 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         notifyDataSetChanged();
     }
 
+    public RestaurantItemAdapter() {
+        notifyDataSetChanged();
+    }
+
+
     @NonNull
     @Override
     public RestaurantItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,7 +47,7 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
     public void onBindViewHolder(@NonNull RestaurantItemViewHolder holder, int position) {
         RestaurantItem restaurant = restaurants.get(position);
 
-        holder.image.setImageDrawable(ContextCompat.getDrawable(context, restaurant.getIcon()));
+        Glide.with(this.context).load(restaurant.getImagePath()).into(holder.image);
         holder.title.setText(restaurant.getName());
         holder.description.setText(restaurant.getDescription());
 
@@ -53,7 +59,7 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         return restaurants.size();
     }
 
-    public void setData(List<RestaurantItem> restaurantsList) {
+    public void setData(List<RestaurantItem> restaurantsList, Context context) {
         this.restaurants = (ArrayList<RestaurantItem>) restaurantsList;
         this.context = context;
         notifyDataSetChanged();

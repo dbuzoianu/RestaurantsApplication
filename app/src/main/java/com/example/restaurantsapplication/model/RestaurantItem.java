@@ -21,8 +21,8 @@ public class RestaurantItem {
     @SerializedName("longitude")
     private String longitude;
 
-    @SerializedName("photos")
-    private ArrayList<String> photos;
+//    @SerializedName("photos")
+//    private ArrayList<String> photos;
 
     public RestaurantItem(int icon, String name, String description, String imagePath, String latitude, String longitude, ArrayList<String> photos) {
         this.icon = icon;
@@ -31,7 +31,7 @@ public class RestaurantItem {
         this.imagePath = imagePath;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.photos = photos;
+//        this.photos = photos;
     }
 
     public RestaurantItem(String name, String description, String imagePath, String latitude, String longitude, ArrayList<String> photos) {
@@ -40,7 +40,7 @@ public class RestaurantItem {
         this.imagePath = imagePath;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.photos = photos;
+//        this.photos = photos;
     }
 
     public int getIcon() {
@@ -91,11 +91,11 @@ public class RestaurantItem {
         this.longitude = longitude;
     }
 
-    public ArrayList<String> getPhotos() {
-        return photos;
-    }
+//    public ArrayList<String> getPhotos() {
+//        return photos;
+//    }
 
-    public void setPhotos(ArrayList<String> photos) {
-        this.photos = photos;
-    }
+//    public void setPhotos(ArrayList<String> photos) {
+//        this.photos = photos;
+//    }
 }

@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Intent intent = new Intent(SplashActivity.this, RestaurantDetails.class);
+        Intent intent = new Intent(SplashActivity.this, RestaurantsActivity.class);
         startActivity(intent);
     }
 }
