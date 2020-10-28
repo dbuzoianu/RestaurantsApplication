@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.restaurantsapplication.R;
@@ -19,18 +20,41 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCallback {
 
+    LatLng coord;
+    String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+
+        name = intent.getStringExtra("name");
+        String description = intent.getStringExtra("description");
+        String latitude = intent.getStringExtra("latitude");
+        String longitude = intent.getStringExtra("longitude");
+
+        //Serializable photos = intent.getSerializableExtra("photos");
+
+        this.coord = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+
         setContentView(R.layout.single_restaurant_page);
 
-        setToolbar();
+        setToolbar(name);
+
+        TextView restaurantTitle = findViewById(R.id.restaurantDetailsTitle);
+        restaurantTitle.setText(name);
+
+        TextView restaurantDesc = findViewById(R.id.restaurantDetailsDescription);
+        restaurantDesc.setText(description);
 
         RecyclerView imagesListView = findViewById(R.id.carouselRestaurant);
         imagesListView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
@@ -48,14 +72,14 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng coord = new LatLng(41.1622023,-8.656973);
-        googleMap.addMarker(new MarkerOptions().position(coord).title("Porto").snippet("Welcome to Porto, Portugal!"));
+        //LatLng coord = new LatLng(41.1622023,-8.656973);
+        googleMap.addMarker(new MarkerOptions().position(coord).title(name));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coord, 16));
     }
 
-    private void setToolbar() {
+    private void setToolbar(String name) {
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
-        myToolbar.setTitle("Restaurant name");
+        myToolbar.setTitle(name);
         setSupportActionBar(myToolbar);
 
         if(getSupportActionBar()!=null) {

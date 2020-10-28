@@ -18,6 +18,7 @@ import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.RestaurantItem;
 import com.example.restaurantsapplication.restaurantsDetails.RestaurantDetails;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +73,6 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
             description = itemView.findViewById(R.id.restaurantDescription);
         }
 
-
         @Override
         public void onClick(View v) {
 
@@ -80,7 +80,12 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
 
             Intent intent = new Intent(context, RestaurantDetails.class);
 
-            intent.putExtra("title", restaurants.get(pos).getName());
+            intent.putExtra("name", restaurants.get(pos).getName());
+            intent.putExtra("latitude", restaurants.get(pos).getLatitude());
+            intent.putExtra("longitude", restaurants.get(pos).getLongitude());
+            intent.putExtra("description", restaurants.get(pos).getDescription());
+            intent.putExtra("photos",(Serializable)restaurants.get(pos).getPhotos());
+
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             context.startActivity(intent);
