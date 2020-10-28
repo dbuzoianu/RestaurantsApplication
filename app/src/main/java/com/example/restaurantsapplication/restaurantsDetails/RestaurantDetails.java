@@ -33,21 +33,22 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
     LatLng coord;
     String name;
     Boolean isFavourite;
-    SharedPreferences myPrefs = getSharedPreferences("my_preferred_choices", Activity.MODE_PRIVATE);
-    SharedPreferences.Editor editor = myPrefs.edit();
+    SharedPreferences myPrefs;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        myPrefs = getSharedPreferences("my_preferred_choices", Activity.MODE_PRIVATE);
+        editor = myPrefs.edit();
         Intent intent = getIntent();
 
         name = intent.getStringExtra("name");
         String description = intent.getStringExtra("description");
         String latitude = intent.getStringExtra("latitude");
         String longitude = intent.getStringExtra("longitude");
-
-        isFavourite = myPrefs.getBoolean(name, false);
 
         //Serializable photos = intent.getSerializableExtra("photos");
 

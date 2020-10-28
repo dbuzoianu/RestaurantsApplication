@@ -84,7 +84,7 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
             intent.putExtra("latitude", restaurants.get(pos).getLatitude());
             intent.putExtra("longitude", restaurants.get(pos).getLongitude());
             intent.putExtra("description", restaurants.get(pos).getDescription());
-            intent.putExtra("photos",(Serializable)restaurants.get(pos).getPhotos());
+            //intent.putExtra("photos",(Serializable)restaurants.get(pos).getPhotos());
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
