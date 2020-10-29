@@ -1,6 +1,5 @@
 package com.example.restaurantsapplication.server;
 
-import com.example.restaurantsapplication.model.Post;
 import com.example.restaurantsapplication.model.RestaurantItem;
 
 import java.util.List;

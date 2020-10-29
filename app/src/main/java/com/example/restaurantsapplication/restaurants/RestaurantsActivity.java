@@ -4,17 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
 import com.example.restaurantsapplication.R;
-import com.example.restaurantsapplication.model.Post;
 import com.example.restaurantsapplication.model.RestaurantItem;
-import com.example.restaurantsapplication.restaurantsDetails.RestaurantDetails;
 import com.example.restaurantsapplication.server.ServerProvider;
 
 import java.util.ArrayList;
@@ -40,7 +33,6 @@ public class RestaurantsActivity extends AppCompatActivity {
         restaurantsListView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         restaurantsListView.setHasFixedSize(true);
 
-
         restaurantsAdapter = new RestaurantItemAdapter();
 
         getRestaurantsAsynchronous();
@@ -53,9 +45,10 @@ public class RestaurantsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     restaurantsList = response.body();
 
-
-                    restaurantsAdapter.setData(restaurantsList, getBaseContext());
-                    restaurantsListView.setAdapter(restaurantsAdapter);
+                    if(!restaurantsList.isEmpty()) {
+                        restaurantsAdapter.setData(restaurantsList, getBaseContext());
+                        restaurantsListView.setAdapter(restaurantsAdapter);
+                    }
                 }
             }
 

@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.restaurants.RestaurantsActivity;
-import com.example.restaurantsapplication.restaurantsDetails.RestaurantDetails;
 
 public class SplashActivity extends AppCompatActivity {
 

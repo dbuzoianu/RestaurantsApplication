@@ -17,7 +17,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/maps_api_key"/>
 
-        <activity android:name=".restaurantsDetails.RestaurantDetails"></activity>
+        <activity android:name=".restaurantsDetails.RestaurantDetailsActivity"></activity>
         <activity android:name=".splash.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,24 +5,19 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.RestaurantItem;
-import com.example.restaurantsapplication.restaurantsDetails.RestaurantDetails;
+import com.example.restaurantsapplication.restaurantsDetails.RestaurantDetailsActivity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import static androidx.core.content.ContextCompat.startActivity;
 
 public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAdapter.RestaurantItemViewHolder> {
     private ArrayList<RestaurantItem> restaurants;
@@ -68,6 +63,7 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         public RestaurantItemViewHolder(@NonNull View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
+
             image = itemView.findViewById(R.id.restaurantImage);
             title = itemView.findViewById(R.id.restaurantTitle);
             description = itemView.findViewById(R.id.restaurantDescription);
@@ -78,7 +74,7 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
 
             int pos = getLayoutPosition();
 
-            Intent intent = new Intent(context, RestaurantDetails.class);
+            Intent intent = new Intent(context, RestaurantDetailsActivity.class);
 
             intent.putExtra("name", restaurants.get(pos).getName());
             intent.putExtra("latitude", restaurants.get(pos).getLatitude());

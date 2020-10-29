@@ -39,8 +39,6 @@ public class ImageItemAdapter extends RecyclerView.Adapter<ImageItemAdapter.Imag
         ImageItem image = images.get(position);
 
         Glide.with(this.context).load(image.getImagePath()).into(holder.image);
-        //holder.image.setImageDrawable(ContextCompat.getDrawable(context, image.getIcon()));
-
     }
 
     @Override

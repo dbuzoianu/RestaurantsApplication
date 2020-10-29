@@ -29,7 +29,7 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCallback {
+public class RestaurantDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     LatLng coord;
     String name;
@@ -70,8 +70,8 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         imagesListView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         imagesListView.setHasFixedSize(true);
 
-        ImageItemAdapter imageAdapter = new ImageItemAdapter(getMonkImages(), getBaseContext());
-        imagesListView.setAdapter(imageAdapter);
+       // ImageItemAdapter imageAdapter = new ImageItemAdapter(getMonkImages(), getBaseContext());
+        //imagesListView.setAdapter(imageAdapter);
 
         MapView mapView = findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
@@ -80,9 +80,9 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         mapView.getMapAsync(this);
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        //LatLng coord = new LatLng(41.1622023,-8.656973);
         googleMap.addMarker(new MarkerOptions().position(coord).title(name));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coord, 16));
     }
@@ -129,16 +129,4 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         return true;
     }
 
-    private ArrayList<ImageItem> getMonkImages() {
-        ArrayList<ImageItem> images = new ArrayList<>();
-//
-//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_btn_borderless_material, imagePath));
-//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_ic_menu_copy_mtrl_am_alpha, imagePath));
-//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_scrubber_control_to_pressed_mtrl_000, imagePath));
-//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_text_select_handle_left_mtrl_light, imagePath));
-//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_textfield_search_material, imagePath));
-//        images.add(new ImageItem(androidx.appcompat.R.drawable.abc_menu_hardkey_panel_mtrl_mult, imagePath));
-
-        return images;
-    }
 }

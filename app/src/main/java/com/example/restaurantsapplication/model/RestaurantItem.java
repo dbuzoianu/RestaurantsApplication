@@ -34,13 +34,13 @@ public class RestaurantItem {
         this.photos = photos;
     }
 
-    public RestaurantItem(String name, String description, String imagePath, String latitude, String longitude, ArrayList<String> photos) {
+    public RestaurantItem(String name, String description, String imagePath, String latitude, String longitude, ArrayList<ImageItem> photos) {
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
         this.latitude = latitude;
         this.longitude = longitude;
-//        this.photos = photos;
+        this.photos = photos;
     }
 
     public int getIcon() {
