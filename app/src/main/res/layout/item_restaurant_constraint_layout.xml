@@ -5,7 +5,7 @@
     android:id="@+id/item_restaurant"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     android:minHeight="@dimen/list_item_min_height"
     android:visibility="visible"
     tools:visibility="visible">

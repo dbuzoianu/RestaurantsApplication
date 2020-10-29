@@ -13,6 +13,7 @@ import android.os.Bundle;
 
 import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.ImageItem;
+import com.example.restaurantsapplication.restaurants.RestaurantsActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -43,6 +44,7 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
 
         myPrefs = getSharedPreferences("my_preferred_choices", Activity.MODE_PRIVATE);
         editor = myPrefs.edit();
+
         Intent intent = getIntent();
 
         name = intent.getStringExtra("name");
@@ -50,12 +52,12 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
         String latitude = intent.getStringExtra("latitude");
         String longitude = intent.getStringExtra("longitude");
 
-        //Serializable photos = intent.getSerializableExtra("photos");
+        //ArrayList<ImageItem> photos = (ArrayList<ImageItem>) intent.getExtras.getSerializableExtra("photos");
 
         this.coord = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
 
         setContentView(R.layout.single_restaurant_page);
-
+        isFavourite = myPrefs.getBoolean(name, false);
         setToolbar(name);
 
         TextView restaurantTitle = findViewById(R.id.restaurantDetailsTitle);
@@ -109,9 +111,11 @@ public class RestaurantDetails extends AppCompatActivity implements OnMapReadyCa
                 if(isFavourite) {
                     isFavourite = false;
                     editor.remove(name);
+                    item.setIcon(R.drawable.empty_heart);
                 } else {
                     isFavourite = true;
                     editor.putBoolean(name, true);
+                    item.setIcon(R.drawable.fullfil_heart);
                 }
                 return true;
         }

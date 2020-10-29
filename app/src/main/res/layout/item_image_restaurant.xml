@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/detailsImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/dim_80dp"
+        android:layout_height="@dimen/dim_80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars"
-        android:layout_marginRight="0.5dp"/>
+        android:layout_marginRight="@dimen/dim_2dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

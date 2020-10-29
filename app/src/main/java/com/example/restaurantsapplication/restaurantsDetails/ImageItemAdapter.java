@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.restaurantsapplication.R;
 import com.example.restaurantsapplication.model.ImageItem;
 
@@ -37,7 +38,8 @@ public class ImageItemAdapter extends RecyclerView.Adapter<ImageItemAdapter.Imag
     public void onBindViewHolder(@NonNull ImageItemAdapter.ImageItemViewHolder holder, int position) {
         ImageItem image = images.get(position);
 
-        holder.image.setImageDrawable(ContextCompat.getDrawable(context, image.getIcon()));
+        Glide.with(this.context).load(image.getImagePath()).into(holder.image);
+        //holder.image.setImageDrawable(ContextCompat.getDrawable(context, image.getIcon()));
 
     }
 
